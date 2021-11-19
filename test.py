@@ -1,36 +1,42 @@
+def f(x):
+	return 3 * x ** 2 - 4 * x
+
+def numerical_lim(f, x, h):
+	return (f(x + h) - f(x)) / h
+
+h = 0.1
+for i in range(5):
+	print(f'h={h:.5f}, numerical_limit={numerical_lim(f, 1, h):.5f}')
+	h *= 0.1
+
+from matplotlib.colors import LinearSegmentedColormap
+import matplotlib.pyplot as plt
 import numpy as np
+import seaborn as sns
 
-a = np.arange(8).reshape(2, 4)
-b = np.arange(8).reshape(4, 2)
 
-#print(np.dot(a, b))
+x = [1, 2, 3]
+y = [1, 2, 3]
 
-# tensors
-x = np.arange(24).reshape(2, 3, 4)
-#print(x)
+# plt.plot(x, y)
+# plt.title("My Plot")
+# plt.xlabel("X")
+# plt.ylabel("Y")
+# plt.show()
+# plt.savefig("test.png")
 
-c = np.dot(a, b)
-#print(c)
+# x = np.linspace(0, np.pi * 10, 500)
+# fig, axes = plt.subplots(2, 1)
+# axes[0].plot(x, np.sin(x))
+# axes[1].plot(x, np.cos(x))
+# fig.savefig("sin and cos.png")
 
-d = np.einsum('ik, kj -> ij', a, b)
-#print(d)
+# x = np.arange(-9, 10)
+# y = x ** 2
+# plt.plot(x, y, linestyle=":", marker="*", color="red", label="y=x*x")
+# plt.show()
 
-aa = np.arange(9).reshape(3, 3)
-#print(aa)
-#e = np.einsum('ii->i', aa)
-e = np.einsum('ij->i', aa)
-f = np.einsum('ij->ji', aa)     # aa.T == F
-#print(e)
-#print(f)
-
-a2 = np.arange(60.).reshape(3, 4, 5)
-b2 = np.arange(24.).reshape(4, 3, 2)
-c2 = np.einsum('ijk, jil -> kl', a2, b2)
-# print(a2)
-# print(b2)
-# print(c2)
-
-# Norm
-u = np.array([3, -4])
-print(np.linalg.norm(u))
-print(np.abs(u).sum())
+x = np.linspace(0, 10, 1000)
+y = np.power(x, 2)
+plt.plot(x, y)
+plt.show()
